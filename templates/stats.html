@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block title %}View Stats
+{% endblock  %}
+{% block content %}
+
+    <div>
+        <!--
+        <form action="{{ url_for("teamScore") }}" align="right">
+            <button type="submit" value="#">Enter match data!</button>
+        </form>
+        -->
+
+        <!--
+        <form action="#" method="POST">
+            <input type="number" name="match_id" value="match_id" placeholder="MATCH ID">
+            <input type="submit" value="DELETE">
+        </form>
+        -->
+    </div>
+
+    {% for data in stats  %}
+
+
+    <!-- <p>Team: {{data.team}}, Match: {{data.match_number}}, Note: {{data.team_note}}</p> -->
+
+    
+    <div class="container">
+        <table class="table table-hover" border=3px bordercolor="red";>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>TEAM: {{data.team}}</th>
+                <th><!--match id={{data._id}}--></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td></td>
+                <td><strong><em>AUTON</em></strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><strong><em>END GAME</em></strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong><em>MATCH #</em></strong></td>
+                <td><em>OFF LINE</em></td>
+                <td><em>LOW</em></td>
+                <td><em>HIGH</em></td>
+                <td><em>INNER</em></td>
+                <td><em>PARK</em></td>
+                <td><em>HUNG</em></td>
+                <td><em>BALANCE</em></td>
+            </tr>
+            <tr>
+                <td>{{data.match_number}}</td>
+                <td>Y N</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Y N</td>
+                <td>Y N | H M L</td>
+                <td>Y N</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><strong><em>TELEOP</em></strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><em>LOW</em></td>
+                <td><em>HIGH</em></td>
+                <td><em>INNER</em></td>
+                <td><em>TRENCH</em></td>
+                <td><em>GRID</em></td>
+                <td><em>ROTATE</em></td>
+                <td><em>POSITION</em></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Y N</td>
+                <td>Y N</td>
+                <td>Y N</td>
+                <td>Y N</td>
+            </tr>
+        </tbody>
+        </table>
+
+        <div>
+            <h4>NOTES FOR THE ABOVE MATCH</h4>
+            <p>>>> {{data.team_note}}</p>
+
+            <form method="POST">
+                <button type="submit" value="{{data._id}}">DELETE MATCH</button>
+                <input type="number" name="match_id" value="{{data._id}}" style="visibility:hidden">
+            </form>
+        </div>
+    </div>
+
+    {% endfor %}
+{% endblock  %}
