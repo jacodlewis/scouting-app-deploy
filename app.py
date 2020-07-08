@@ -5,10 +5,6 @@ import requests
 import base64
 import io
 
-""" GLOBAL VARIABLES """
-teamsearch = None
-matchsearch = None
-
 app = Flask(__name__)
 app.secret_key = "secret"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
@@ -27,6 +23,8 @@ class Data(db.Model):
         self.match_number = match_number
         self.team_note = team_note
 
+teamsearch = None 
+matchsearch = None
 
 @app.route("/")
 def home():
@@ -103,5 +101,3 @@ def method_not_allowed(e):
 if __name__ == "__main__":
     db.create_all()
     app.run(debug=True)
-
-
